@@ -1,25 +1,24 @@
-package com.example.memorycanvas;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.user.memorine;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 
-
 public class MainActivity extends AppCompatActivity {
+
     TilesView view;
+    public float width, height;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         view = findViewById(R.id.view);
-
-    }
-
-    public void onNewGameClick(View v) {
-        view.onClick(); // запустить игру заново
-
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        width = metrics.widthPixels;
+        height = metrics.heightPixels;
     }
 }
 
